@@ -7,11 +7,65 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vmware-tanzu/tanzu-plugin-runtime/config/types"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/vmware-tanzu/tanzu-plugin-runtime/config/types"
 )
 
+func TestDuplicateNoNameContextAndServers(t *testing.T) {
+	// setup
+	func() {
+		LocalDirName = TestLocalDirName
+	}()
+	defer func() {
+		cleanupDir(LocalDirName)
+	}()
+
+	c := &types.ClientConfig{
+		KnownServers: []*types.Server{
+			{
+				Type: types.ManagementClusterServerType,
+				ManagementClusterOpts: &types.ManagementClusterServer{
+					Endpoint: "test-endpoint",
+					Context:  "test-context",
+					Path:     "test-path",
+				},
+			},
+		},
+	}
+
+	err := StoreClientConfig(c)
+	assert.NoError(t, err)
+
+	cfg, err := GetClientConfig()
+	assert.NoError(t, err)
+	assert.Equal(t, 1, len(cfg.KnownServers))
+	assert.Equal(t, 1, len(cfg.KnownContexts))
+
+	err = StoreClientConfig(cfg)
+	assert.NoError(t, err)
+
+	cfg, err = GetClientConfig()
+	assert.NoError(t, err)
+	assert.Equal(t, 2, len(cfg.KnownServers))
+	assert.Equal(t, 2, len(cfg.KnownContexts))
+
+	err = StoreClientConfig(cfg)
+	assert.NoError(t, err)
+
+	cfg, err = GetClientConfig()
+	assert.NoError(t, err)
+	assert.Equal(t, 4, len(cfg.KnownServers))
+	assert.Equal(t, 4, len(cfg.KnownContexts))
+
+	err = StoreClientConfig(cfg)
+	assert.NoError(t, err)
+
+	cfg, err = GetClientConfig()
+	assert.NoError(t, err)
+	assert.Equal(t, 8, len(cfg.KnownServers))
+	assert.Equal(t, 8, len(cfg.KnownContexts))
+
+}
 func TestStoreClientConfig(t *testing.T) {
 	cfg, expectedCfg, cfg2, expectedCfg2, c := setupStoreClientConfigData()
 

@@ -141,6 +141,5 @@ run-compatibility-tests: ## Run Compatibility tests
 context-api-compatibility-tests: ## Run Compatibility tests
 	 ${GO} test `go list ./test/compatibility/framework/compatibilitytests/context...` -v -timeout 60m -race;\
 
-
 .PHONY: compatibility-tests
 compatibility-tests: tools build-compatibility-test-plugins run-compatibility-tests ## Build and Run Compatibility tests

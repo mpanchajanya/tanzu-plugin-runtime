@@ -1136,3 +1136,90 @@ func TestSetContextWithUniquePermissions(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, 7, len(s.GlobalOpts.Auth.Permissions))
 }
+
+func TestSetContextWithoutName(t *testing.T) {
+	// setup
+	func() {
+		LocalDirName = TestLocalDirName
+		// setup data
+		node := &yaml.Node{
+			Kind: yaml.DocumentNode,
+			Content: []*yaml.Node{
+				{
+					Kind:    yaml.MappingNode,
+					Content: []*yaml.Node{},
+				},
+			},
+		}
+		err := persistConfig(node)
+		assert.NoError(t, err)
+	}()
+	defer func() {
+		cleanupDir(LocalDirName)
+	}()
+
+	//ctx := &configtypes.Context{
+	//	Name:   "test-mc2",
+	//	Target: configtypes.TargetK8s,
+	//	ClusterOpts: &configtypes.ClusterServer{
+	//		Endpoint:            "test-endpoint",
+	//		Path:                "test-path",
+	//		Context:             "test-context",
+	//		IsManagementCluster: true,
+	//	},
+	//}
+	//ctxUpdater := &configtypes.Context{
+	//	Name:   "test-mc2",
+	//	Target: configtypes.TargetK8s,
+	//	ClusterOpts: &configtypes.ClusterServer{
+	//		Endpoint:            "test-endpoint-update",
+	//		Path:                "test-path",
+	//		Context:             "test-context",
+	//		IsManagementCluster: true,
+	//	},
+	//}
+	ctxNoName := &configtypes.Context{
+		Target: configtypes.TargetK8s,
+		ClusterOpts: &configtypes.ClusterServer{
+			Endpoint:            "test-endpoint",
+			Path:                "test-path",
+			Context:             "test-context",
+			IsManagementCluster: true,
+		},
+	}
+	//ctxNoNameUpdater := &configtypes.Context{
+	//	Target: configtypes.TargetK8s,
+	//	ClusterOpts: &configtypes.ClusterServer{
+	//		Endpoint:            "test-endpoint-update",
+	//		Path:                "test-path",
+	//		Context:             "test-context",
+	//		IsManagementCluster: true,
+	//	},
+	//}
+
+	// perform test
+	//err := SetContext(ctx, false)
+	//err = SetContext(ctxNoName, false)
+	//
+	//c, err := GetContext(ctx.Name)
+	//assert.NoError(t, err)
+	//assert.NotNil(t, c)
+	//
+	//c, err = GetContext(ctxNoName.Name)
+	//assert.NoError(t, err)
+	//assert.NotNil(t, c)
+	//
+	//err = SetContext(ctxUpdater, false)
+	//assert.NoError(t, err)
+	//
+	//err = SetContext(ctxNoNameUpdater, false)
+	//assert.NoError(t, err)
+	//
+	//err = SetContext(ctxUpdater, false)
+	//assert.NoError(t, err)
+	err := SetContext(ctxNoName, false)
+	assert.NoError(t, err)
+
+	err = SetContext(ctxNoName, false)
+	assert.NoError(t, err)
+}
