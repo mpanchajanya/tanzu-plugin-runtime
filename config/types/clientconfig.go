@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // Target is the namespace of the CLI to which plugin is applicable
@@ -286,4 +287,26 @@ func (c *ClientConfig) SetEditionSelector(edition EditionSelector) {
 		return
 	}
 	c.ClientOptions.CLI.UnstableVersionSelector = EditionStandard
+}
+
+const DefaultTimeLimitInHours = 24
+
+func (group *EssentialPluginGroup) IsLastUpdatedWithinLimit() bool {
+	if group.LastUpdatedTimestamp == nil {
+		// LastUpdatedTimestamp is not set, consider it as passed 24 hours
+		return false
+	}
+
+	// Get the current time
+	currentTime := time.Now()
+
+	// Calculate the duration since the last update
+	duration := currentTime.Sub(*group.LastUpdatedTimestamp)
+
+	// Check if the duration is more than 24 hours
+	if duration.Hours() > DefaultTimeLimitInHours {
+		return false
+	}
+
+	return true
 }

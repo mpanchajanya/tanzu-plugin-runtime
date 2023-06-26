@@ -25,4 +25,5 @@ const (
 	KeyCEIPOptIn               = "ceipOptIn"
 	KeyEULAStatus              = "eulaStatus"
 	KeyCerts                   = "certs"
+	KeyEssentials              = "essentials"
 )

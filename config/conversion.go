@@ -180,6 +180,7 @@ func convertObjectToNode[
 		*configtypes.Server |
 		*configtypes.PluginRepository |
 		*configtypes.Context |
+		*configtypes.EssentialPluginGroup |
 		*configtypes.Cert |
 		*configtypes.PluginDiscovery](obj T) (*yaml.Node, error) {
 
