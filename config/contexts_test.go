@@ -836,6 +836,32 @@ func TestSetSingleContext(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "success k8s current",
+			ctx: &configtypes.Context{
+				Name:   "test-mc",
+				Target: "",
+				ClusterOpts: &configtypes.ClusterServer{
+					Endpoint:            "",
+					Path:                "",
+					Context:             "",
+					IsManagementCluster: true,
+				},
+			},
+		},
+		{
+			name: "success k8s current",
+			ctx: &configtypes.Context{
+				Name:   "test-mc",
+				Target: "",
+				ClusterOpts: &configtypes.ClusterServer{
+					Endpoint:            "testing",
+					Path:                "",
+					Context:             "",
+					IsManagementCluster: true,
+				},
+			},
+		},
 	}
 
 	for _, tc := range tcs {

@@ -26,4 +26,7 @@ const (
 	KeyEULAStatus              = "eulaStatus"
 	KeyCerts                   = "certs"
 	KeyEssentials              = "essentials"
+	KeyPluginGroups            = "pluginGroups"
+	KeyLastUpdatedTimestamp    = "lastUpdatedTimestamp"
+	KeyCorePluginGroup         = "corePluginGroup"
 )

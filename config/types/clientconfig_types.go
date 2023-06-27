@@ -297,15 +297,12 @@ type CoreCliOptions struct {
 	EULAStatus string `json:"eulaStatus,omitempty" yaml:"eulaStatus,omitempty"`
 	// DiscoverySources determine where to discover plugins
 	DiscoverySources []PluginDiscovery `json:"discoverySources,omitempty" yaml:"discoverySources,omitempty"`
-	// EssentialPluginGroups determine where to discover plugins
-	EssentialPluginGroups []*EssentialPluginGroup `json:"essentials,omitempty" yaml:"essentials,omitempty"`
+
+	Essentials *Essentials `json:"essentials,omitempty" yaml:"essentials,omitempty"`
 }
 
-// EssentialPluginGroup are essential plugin groups maintained by tanzu cli core to manage essential plugins
-type EssentialPluginGroup struct {
-	Name                 string     `json:"name,omitempty" yaml:"name,omitempty"`
-	InstalledVersion     string     `json:"installedVersion,omitempty" yaml:"installedVersion,omitempty"`
-	Version              string     `json:"version,omitempty" yaml:"version,omitempty"`
+// Essentials are essential plugin groups maintained by tanzu cli core to manage essential plugins
+type Essentials struct {
 	LastUpdatedTimestamp *time.Time `json:"lastUpdatedTimestamp,omitempty" yaml:"lastUpdatedTimestamp,omitempty"`
 }
 

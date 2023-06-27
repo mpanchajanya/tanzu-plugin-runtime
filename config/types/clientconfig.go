@@ -291,8 +291,45 @@ func (c *ClientConfig) SetEditionSelector(edition EditionSelector) {
 
 const DefaultTimeLimitInHours = 24
 
-func (group *EssentialPluginGroup) IsLastUpdatedWithinLimit() bool {
-	if group.LastUpdatedTimestamp == nil {
+type EssentialsOption func(*Essentials)
+type CorePluginGroupOption func(*CorePluginGroup)
+
+func WithLastUpdatedTimestamp(timestamp time.Time) CorePluginGroupOption {
+	return func(e *CorePluginGroup) {
+		e.LastUpdatedTimestamp = &timestamp
+	}
+}
+
+func WithPluginGroupName(name string) CorePluginGroupOption {
+	return func(e *CorePluginGroup) {
+		e.Name = name
+	}
+}
+
+func WithPluginGroupVersion(version string) CorePluginGroupOption {
+	return func(e *CorePluginGroup) {
+		e.Version = version
+	}
+}
+
+func NewCorePluginGroup(opts ...CorePluginGroupOption) *CorePluginGroup {
+	core := &CorePluginGroup{}
+	for _, opt := range opts {
+		opt(core)
+	}
+	return core
+}
+
+func NewEssentials(opts ...EssentialsOption) *Essentials {
+	essentials := &Essentials{}
+	for _, opt := range opts {
+		opt(essentials)
+	}
+	return essentials
+}
+
+func (e *Essentials) IsLastUpdatedWithinLimit() bool {
+	if e.LastUpdatedTimestamp == nil {
 		// LastUpdatedTimestamp is not set, consider it as passed 24 hours
 		return false
 	}
@@ -301,7 +338,27 @@ func (group *EssentialPluginGroup) IsLastUpdatedWithinLimit() bool {
 	currentTime := time.Now()
 
 	// Calculate the duration since the last update
-	duration := currentTime.Sub(*group.LastUpdatedTimestamp)
+	duration := currentTime.Sub(*e.LastUpdatedTimestamp)
+
+	// Check if the duration is more than 24 hours
+	if duration.Hours() > DefaultTimeLimitInHours {
+		return false
+	}
+
+	return true
+}
+
+func (e *CorePluginGroup) IsLastUpdatedWithinLimit() bool {
+	if e.LastUpdatedTimestamp == nil {
+		// LastUpdatedTimestamp is not set, consider it as passed 24 hours
+		return false
+	}
+
+	// Get the current time
+	currentTime := time.Now()
+
+	// Calculate the duration since the last update
+	duration := currentTime.Sub(*e.LastUpdatedTimestamp)
 
 	// Check if the duration is more than 24 hours
 	if duration.Hours() > DefaultTimeLimitInHours {
