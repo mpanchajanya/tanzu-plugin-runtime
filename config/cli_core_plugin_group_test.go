@@ -4,90 +4,86 @@
 package config
 
 import (
+	"os"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
-
-	configtypes "github.com/vmware-tanzu/tanzu-plugin-runtime/config/types"
 )
 
-func TestSetCLICorePluginGroup(t *testing.T) {
-	// Setup config test data
-	_, cleanUp := setupTestConfig(t, &CfgTestData{})
-
-	defer func() {
-		cleanUp()
-	}()
-
-	currentTime := time.Now()
-
-	tests := []struct {
-		name   string
-		input  *configtypes.CorePluginGroup
-		total  int
-		errStr string
+func TestGetCLICorePluginGroup(t *testing.T) {
+	testCases := []struct {
+		name                       string
+		envVariables               map[string]string
+		expectedPluginGroupName    string
+		expectedPluginGroupVersion string
+		expectedError              error
 	}{
 		{
-			name: "success add test",
-			input: &configtypes.CorePluginGroup{
-				Name:                 DefaultCorePluginGroupName,
-				LastUpdatedTimestamp: &currentTime,
-			},
-			total: 1,
+			name:                       "Default values",
+			envVariables:               map[string]string{},
+			expectedPluginGroupName:    DefaultCorePluginGroupName,
+			expectedPluginGroupVersion: "",
+			expectedError:              nil,
 		},
 		{
-			name: "success add test",
-			input: &configtypes.CorePluginGroup{
-				Name:                 DefaultCorePluginGroupName,
-				Version:              "v0.0.2",
-				LastUpdatedTimestamp: &currentTime,
+			name: "Custom values",
+			envVariables: map[string]string{
+				TanzuCLICorePluginGroupName:    "custom-group",
+				TanzuCLICorePluginGroupVersion: "1.0.0",
 			},
-			total: 1,
+			expectedPluginGroupName:    "custom-group",
+			expectedPluginGroupVersion: "1.0.0",
+			expectedError:              nil,
 		},
 		{
-			name: "success add test",
-			input: &configtypes.CorePluginGroup{
-				Name:                 DefaultCorePluginGroupName,
-				Version:              "",
-				LastUpdatedTimestamp: &currentTime,
+			name: "Missing core plugin group name",
+			envVariables: map[string]string{
+				TanzuCLICorePluginGroupVersion: "1.0.0",
 			},
-			total: 1,
+			expectedPluginGroupName:    DefaultCorePluginGroupName,
+			expectedPluginGroupVersion: "1.0.0",
+			expectedError:              nil,
 		},
 		{
-			name: "success add test",
-			input: &configtypes.CorePluginGroup{
-				Name:                 DefaultCorePluginGroupName,
-				Version:              "v0.0.1",
-				LastUpdatedTimestamp: &currentTime,
+			name: "Missing core plugin group version",
+			envVariables: map[string]string{
+				TanzuCLICorePluginGroupName: "custom-group",
 			},
-			total: 1,
-		},
-		{
-			name: "success update test",
-			input: &configtypes.CorePluginGroup{
-				Name:                 DefaultCorePluginGroupName,
-				Version:              "v0.0.1",
-				LastUpdatedTimestamp: &currentTime,
-			},
-			total: 1,
+			expectedPluginGroupName:    "custom-group",
+			expectedPluginGroupVersion: "",
+			expectedError:              nil,
 		},
 	}
-	for _, spec := range tests {
-		t.Run(spec.name, func(t *testing.T) {
-			err := SetCLICorePluginGroup(spec.input)
-			if spec.errStr != "" {
-				assert.Equal(t, spec.errStr, err.Error())
-			} else {
-				assert.NoError(t, err)
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			// Set environment variables
+			for key, value := range tc.envVariables {
+				err := os.Setenv(key, value)
+				assert.Nil(t, err)
 			}
 
-			group, err := GetCLICorePluginGroup(spec.input.Name)
-			assert.NoError(t, err)
-			assert.Equal(t, spec.input.Name, group.Name)
-			assert.Equal(t, spec.input.Version, group.Version)
-			assert.Equal(t, spec.input.LastUpdatedTimestamp.UTC(), group.LastUpdatedTimestamp.UTC())
+			// Call the function
+			corePluginGroup, err := GetCLICorePluginGroup()
 
+			// Assert the values and errors
+			if corePluginGroup.Name != tc.expectedPluginGroupName {
+				t.Errorf("Expected core plugin group name: %s, got: %s", tc.expectedPluginGroupName, corePluginGroup.Name)
+			}
+
+			if corePluginGroup.Version != tc.expectedPluginGroupVersion {
+				t.Errorf("Expected core plugin group version: %s, got: %s", tc.expectedPluginGroupVersion, corePluginGroup.Version)
+			}
+
+			if err != tc.expectedError {
+				t.Errorf("Expected error: %v, got: %v", tc.expectedError, err)
+			}
+
+			// Reset environment variables
+			for key := range tc.envVariables {
+				err := os.Unsetenv(key)
+				assert.Nil(t, err)
+			}
 		})
 	}
 }

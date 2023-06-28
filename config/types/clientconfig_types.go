@@ -306,6 +306,13 @@ type Essentials struct {
 	LastUpdatedTimestamp *time.Time `json:"lastUpdatedTimestamp,omitempty" yaml:"lastUpdatedTimestamp,omitempty"`
 }
 
+// CorePluginGroup are essential plugin groups maintained by tanzu cli core to manage essential plugins
+type CorePluginGroup struct {
+	Name                 string     `json:"name,omitempty" yaml:"name,omitempty"`
+	Version              string     `json:"version,omitempty" yaml:"version,omitempty"`
+	LastUpdatedTimestamp *time.Time `json:"lastUpdatedTimestamp,omitempty" yaml:"lastUpdatedTimestamp,omitempty"`
+}
+
 // Cert provides a certificate configuration for an endpoint
 type Cert struct {
 	// Host is the host(or ipaddress) or host:port for which the certificate configuration is applicable
