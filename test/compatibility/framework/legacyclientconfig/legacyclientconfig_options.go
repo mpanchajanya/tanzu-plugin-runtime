@@ -51,7 +51,7 @@ type CfgClientConfigArgsOption func(*CfgClientConfigArgs)
 func WithCLIDiscoverySources(version core.RuntimeVersion, sources []types.PluginDiscoveryOpts) CfgClientConfigArgsOption {
 	return func(c *CfgClientConfigArgs) {
 		switch version {
-		case core.VersionLatest, core.Version090:
+		case core.VersionLatest, core.Version102, core.Version090:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				CoreCliOptions: &types.CoreCliOptionsOpts{
 					DiscoverySources: sources,
@@ -74,7 +74,7 @@ func WithDefaultCLIDiscoverySource(version core.RuntimeVersion) CfgClientConfigA
 	defaultPluginDiscoverySource := clidiscoverysources.DefaultCLIDiscoverySourcePerVersion(version)
 	return func(c *CfgClientConfigArgs) {
 		switch version {
-		case core.VersionLatest, core.Version090:
+		case core.VersionLatest, core.Version102, core.Version090:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				CoreCliOptions: &types.CoreCliOptionsOpts{
 					DiscoverySources: []types.PluginDiscoveryOpts{
