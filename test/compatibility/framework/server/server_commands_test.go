@@ -23,7 +23,7 @@ func TestNewSetServerCommand(t *testing.T) {
 		{
 			&SetServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ServerOpts: &types.ServerOpts{
 					Name: "compatibility-one",
@@ -37,7 +37,7 @@ func TestNewSetServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.SetServerAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.Server: `name: compatibility-one
 type: managementcluster
@@ -58,7 +58,7 @@ globalOpts:
 		{
 			&SetServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ServerOpts: &types.ServerOpts{
 					Name: "compatibility-one",
@@ -72,7 +72,7 @@ globalOpts:
 				APIs: []*core.API{
 					{
 						Name:    core.SetServerAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.Server: `name: compatibility-one
 type: managementcluster
@@ -112,12 +112,12 @@ func TestNewGetServerCommand(t *testing.T) {
 		{
 			&GetServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ServerName: "compatibility-one",
 			}, &GetServerOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ServerOpts: &types.ServerOpts{
 					Name: "compatibility-one",
@@ -131,7 +131,7 @@ func TestNewGetServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.GetServerAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},
@@ -151,12 +151,12 @@ globalOpts:
 		{
 			&GetServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ServerName: "compatibility-one",
 			}, &GetServerOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ServerOpts: &types.ServerOpts{
 					Name: "compatibility-one",
@@ -170,7 +170,7 @@ globalOpts:
 				APIs: []*core.API{
 					{
 						Name:    core.GetServerAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},
@@ -209,7 +209,7 @@ func TestNewDeleteServerCommand(t *testing.T) {
 		{
 			&DeleteServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ServerName: "compatibility-one",
 			}, nil,
@@ -217,7 +217,7 @@ func TestNewDeleteServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.DeleteServerAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},
@@ -233,7 +233,7 @@ func TestNewDeleteServerCommand(t *testing.T) {
 		{
 			&DeleteServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ServerName: "compatibility-one",
 			}, nil,
@@ -241,7 +241,7 @@ func TestNewDeleteServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.DeleteServerAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},
@@ -276,7 +276,7 @@ func TestNewSetCurrentServerCommand(t *testing.T) {
 		{
 			&SetCurrentServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ServerName: "compatibility-one",
 			}, nil,
@@ -284,7 +284,7 @@ func TestNewSetCurrentServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.SetCurrentServerAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},
@@ -300,7 +300,7 @@ func TestNewSetCurrentServerCommand(t *testing.T) {
 		{
 			&SetCurrentServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ServerName: "compatibility-one",
 			}, nil,
@@ -308,7 +308,7 @@ func TestNewSetCurrentServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.SetCurrentServerAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},
@@ -343,11 +343,11 @@ func TestNewGetCurrentServerCommand(t *testing.T) {
 		{
 			&GetCurrentServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 			}, &GetCurrentServerOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ServerOpts: &types.ServerOpts{
 					Name: "compatibility-one",
@@ -361,7 +361,7 @@ func TestNewGetCurrentServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:      core.GetCurrentServerAPI,
-						Version:   core.Version090,
+						Version:   core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{},
 						Output: &core.Output{
 							ValidationStrategy: "",
@@ -379,11 +379,11 @@ globalOpts:
 		{
 			&GetCurrentServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 			}, &GetCurrentServerOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ServerOpts: &types.ServerOpts{
 					Name: "compatibility-one",
@@ -397,7 +397,7 @@ globalOpts:
 				APIs: []*core.API{
 					{
 						Name:      core.GetCurrentServerAPI,
-						Version:   core.VersionLatest,
+						Version:   core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{},
 						Output: &core.Output{
 							ValidationStrategy: "",
@@ -433,7 +433,7 @@ func TestNewRemoveCurrentServerCommand(t *testing.T) {
 	}{{
 		&RemoveCurrentServerInputOptions{
 			RuntimeAPIVersion: &core.RuntimeAPIVersion{
-				RuntimeVersion: core.Version090,
+				RuntimeVersion: core.Version0_90,
 			},
 			ServerName: "compatibility-one",
 		}, nil,
@@ -441,7 +441,7 @@ func TestNewRemoveCurrentServerCommand(t *testing.T) {
 			APIs: []*core.API{
 				{
 					Name:    core.RemoveCurrentServerAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ServerName: "compatibility-one",
 					},
@@ -457,7 +457,7 @@ func TestNewRemoveCurrentServerCommand(t *testing.T) {
 		{
 			&RemoveCurrentServerInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ServerName: "compatibility-one",
 			}, nil,
@@ -465,7 +465,7 @@ func TestNewRemoveCurrentServerCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.RemoveCurrentServerAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.ServerName: "compatibility-one",
 						},

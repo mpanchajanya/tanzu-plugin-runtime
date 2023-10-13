@@ -20,13 +20,13 @@ func (opts *SetCLIDiscoverySourceInputOptions) Validate() (bool, error) {
 	}
 
 	switch opts.RuntimeVersion {
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280, core.Version0116:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28, core.Version0_11:
 		err = opts.PluginDiscoveryOpts.ValidPluginDiscovery()
 		if err != nil {
 			return false, err
 		}
 		return true, nil
-	case core.Version0254:
+	case core.Version0_25:
 		err = opts.PluginDiscoveryOpts.ValidPluginDiscovery()
 		if err != nil {
 			return false, err
@@ -65,13 +65,13 @@ func (opts *GetCLIDiscoverySourceOutputOptions) Validate() (bool, error) {
 	}
 
 	switch opts.RuntimeVersion {
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280, core.Version0116:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28, core.Version0_11:
 		err = opts.PluginDiscoveryOpts.ValidPluginDiscovery()
 		if err != nil {
 			return false, err
 		}
 		return true, nil
-	case core.Version0254:
+	case core.Version0_25:
 		err = opts.PluginDiscoveryOpts.ValidPluginDiscovery()
 		if err != nil {
 			return false, err

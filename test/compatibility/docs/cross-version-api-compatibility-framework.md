@@ -53,11 +53,11 @@ type RuntimeAPIVersion struct {
 type RuntimeVersion string
 
 const (
-   Version0116 RuntimeVersion = "v0.11.6"
-   Version0254                = "v0.25.4"
-   Version0280                = "v0.28.0"
-   Version090                = "v0.90.0"
-   VersionLatest              = "latest"
+   Version0_11 RuntimeVersion = "v0.11.6"
+   Version0_25                = "v0.25.4"
+   Version0_28                = "v0.28.0"
+   Version0_90                = "v0.90.0"
+   Version_latest              = "latest"
 )
 
 // NewTestCase creates an instance of TestCase

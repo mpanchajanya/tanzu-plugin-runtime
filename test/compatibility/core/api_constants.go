@@ -93,22 +93,22 @@ const ValidationStrategyStrict ValidationStrategy = "strict"
 type RuntimeVersion string
 
 const (
-	Version0116   RuntimeVersion = "v0.11.6"
-	Version0254   RuntimeVersion = "v0.25.4"
-	Version0280   RuntimeVersion = "v0.28.0"
-	Version090    RuntimeVersion = "v0.90.0"
-	Version102    RuntimeVersion = "v1.0.2"
-	VersionLatest RuntimeVersion = "latest"
+	Version0_11    RuntimeVersion = "v0.11.6"
+	Version0_25    RuntimeVersion = "v0.25.4"
+	Version0_28    RuntimeVersion = "v0.28.0"
+	Version0_90    RuntimeVersion = "v0.90"
+	Version1_0     RuntimeVersion = "v1.0"
+	Version_latest RuntimeVersion = "latest"
 )
 
 // SupportedRuntimeVersions Current supported runtime library versions
 var SupportedRuntimeVersions = []RuntimeVersion{
-	Version0116,
-	Version0254,
-	Version0280,
-	Version090,
-	Version102,
-	VersionLatest,
+	Version0_11,
+	Version0_25,
+	Version0_28,
+	Version0_90,
+	Version1_0,
+	Version_latest,
 }
 
 type ResponseType string

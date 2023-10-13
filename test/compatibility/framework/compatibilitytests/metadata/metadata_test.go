@@ -32,13 +32,13 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.VersionLatest))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.VersionLatest))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version_latest))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version_latest))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.28.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0280))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0_28))
 
 			verifyAfterDelete(testCase)
 
@@ -51,89 +51,89 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.VersionLatest))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.VersionLatest))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version_latest))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version_latest))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.90.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version090))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0_90))
 
 			verifyAfterDelete(testCase)
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting latest  DeleteConfigMetadataSetting v1.0.2", func() {
+		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting latest  DeleteConfigMetadataSetting v1.0", func() {
 			// Build test case with commands
 
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.VersionLatest))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.VersionLatest))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version_latest))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version_latest))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.90.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version102))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version1_0))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
 			executer.Execute(testCase)
 		})
 
-		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v1.0.2  DeleteConfigMetadataSetting v0.28.0", func() {
+		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v1.0  DeleteConfigMetadataSetting v0.28.0", func() {
 			// Build test case with commands
 
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version102))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version102))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version1_0))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version1_0))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.28.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0280))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0_28))
 
 			verifyAfterDelete(testCase)
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v1.0.2  DeleteConfigMetadataSetting v0.90.0", func() {
+		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v1.0  DeleteConfigMetadataSetting v0.90.0", func() {
 			// Build test case with commands
 
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version102))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version102))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version1_0))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version1_0))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.90.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version090))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0_90))
 
 			verifyAfterDelete(testCase)
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v1.0.2  DeleteConfigMetadataSetting latest", func() {
+		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v1.0  DeleteConfigMetadataSetting latest", func() {
 			// Build test case with commands
 
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version102))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version102))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version1_0))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version1_0))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.90.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.VersionLatest))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version_latest))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
@@ -146,31 +146,31 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version090))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version090))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0_90))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0_90))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata v0.28.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0280))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0_28))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v0.90.0  DeleteConfigMetadataSetting v1.0.2", func() {
+		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v0.90.0  DeleteConfigMetadataSetting v1.0", func() {
 			// Build test case with commands
 
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version090))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version090))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0_90))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0_90))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata latest Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version102))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version1_0))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
@@ -182,13 +182,13 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 			// Add SetConfigMetadata Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version090))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version090))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0_90))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0_90))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadata latest Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.VersionLatest))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version_latest))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
@@ -200,30 +200,30 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 			testCase := core.NewTestCase()
 
 			// Add SetConfigMetadata Commands of Runtime v0.28.0
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0280))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0280))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0_28))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0_28))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadataSetting latest Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.VersionLatest))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version_latest))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v0.28.0  DeleteConfigMetadataSetting v1.0.2", func() {
+		ginkgo.It("Run SetConfigMetadataPatchStrategy, SetConfigMetadataSetting v0.28.0  DeleteConfigMetadataSetting v1.0", func() {
 			// Build test case with commands
 			testCase := core.NewTestCase()
 
 			// Add SetConfigMetadata Commands of Runtime v0.28.0
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0280))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0280))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0_28))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0_28))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadataSetting latest Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version102))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version1_0))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
@@ -234,13 +234,13 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 			testCase := core.NewTestCase()
 
 			// Add SetConfigMetadata Commands of Runtime v0.28.0
-			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0280))
-			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0280))
+			testCase.Add(metadata.DefaultSetConfigMetadataPatchStrategyCommand(core.Version0_28))
+			testCase.Add(metadata.DefaultSetConfigMetadataSettingCommand(core.Version0_28))
 
 			verifyAfterSet(testCase)
 
 			// Add DeleteConfigMetadataSetting v0.90.0 Command
-			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version090))
+			testCase.Add(metadata.DefaultDeleteConfigMetadataSettingCommand(core.Version0_90))
 
 			verifyAfterDelete(testCase)
 			// Run all the commands
@@ -253,40 +253,40 @@ var _ = ginkgo.Describe("Cross-version ConfigMetadata Flags APIs compatibility t
 
 func verifyAfterSet(testCase *core.TestCase) {
 	// Add GetConfigMetadata latest, v0.90.0, v0.28.0 Commands
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version102))
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version090))
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version0280))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version102))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version090))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version0280))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version102))
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version090))
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version0280))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version102))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version090))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version0280))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version102))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version090))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version0280))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingsCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version102))
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version090))
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version0280))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version102))
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version090))
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version0280))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version0_28))
 }
 
 func verifyAfterDelete(testCase *core.TestCase) {
@@ -296,33 +296,33 @@ func verifyAfterDelete(testCase *core.TestCase) {
 		},
 	}
 
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.VersionLatest, metadata.WithMetadataOpts(metadataOpts)))
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version102, metadata.WithMetadataOpts(metadataOpts)))
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version090, metadata.WithMetadataOpts(metadataOpts)))
-	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version0280, metadata.WithMetadataOpts(metadataOpts)))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version_latest, metadata.WithMetadataOpts(metadataOpts)))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version1_0, metadata.WithMetadataOpts(metadataOpts)))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version0_90, metadata.WithMetadataOpts(metadataOpts)))
+	testCase.Add(metadata.DefaultGetMetadataCommand(core.Version0_28, metadata.WithMetadataOpts(metadataOpts)))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.VersionLatest, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version102, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version090, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version0280, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version_latest, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version1_0, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version0_90, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version0_28, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.VersionLatest))
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version102))
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version090))
-	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version0280))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version_latest))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version1_0))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version0_90))
+	testCase.Add(metadata.DefaultGetConfigMetadataPatchStrategyCommand(core.Version0_28))
 
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.VersionLatest, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
-	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version102, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version090, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version0280, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version_latest, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
+	testCase.Add(metadata.DefaultGetConfigMetadataCommand(core.Version1_0, metadata.WithConfigMetadataOpts(metadataOpts.ConfigMetadata)))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version0_90, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultGetConfigMetadataSettingCommand(core.Version0_28, metadata.WithError(common.ErrNotFound)))
 
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.VersionLatest, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version102, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version090, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version0280, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version_latest, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version1_0, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version0_90, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultIsConfigMetadataSettingsEnabledCommand(core.Version0_28, metadata.WithError(common.ErrNotFound)))
 
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.VersionLatest, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version102, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version090, metadata.WithError(common.ErrNotFound)))
-	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version0280, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version_latest, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version1_0, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version0_90, metadata.WithError(common.ErrNotFound)))
+	testCase.Add(metadata.DefaultUseUnifiedConfigCommand(core.Version0_28, metadata.WithError(common.ErrNotFound)))
 }

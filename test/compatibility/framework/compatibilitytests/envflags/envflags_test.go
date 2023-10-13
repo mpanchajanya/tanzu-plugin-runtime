@@ -35,60 +35,60 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.VersionLatest))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version_latest))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv latest - DeleteEnv v1.0.2 ", func() {
+		ginkgo.It("Run SetEnv latest - DeleteEnv v1.0 ", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.VersionLatest))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version_latest))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -97,123 +97,123 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.VersionLatest))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version_latest))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
 
-		ginkgo.It("Run SetEnv v1.0.2 - DeleteEnv v0.90.0", func() {
+		ginkgo.It("Run SetEnv v1.0 - DeleteEnv v0.90.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version102))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version1_0))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v1.0.2 - DeleteEnv latest", func() {
+		ginkgo.It("Run SetEnv v1.0 - DeleteEnv latest", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version102))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version1_0))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v1.0.2 - DeleteEnv v0.28.0", func() {
+		ginkgo.It("Run SetEnv v1.0 - DeleteEnv v0.28.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version102))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version1_0))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -223,60 +223,60 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version090))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0_90))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v0.90.0 - DeleteEnv v1.0.2", func() {
+		ginkgo.It("Run SetEnv v0.90.0 - DeleteEnv v1.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version090))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0_90))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -285,29 +285,29 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version090))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0_90))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -317,60 +317,60 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime v0.28.0
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0280))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0_28))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.VersionLatest))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version_latest))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v0.28.0 - DeleteEnv v1.0.2", func() {
+		ginkgo.It("Run SetEnv v0.28.0 - DeleteEnv v1.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime v0.28.0
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0280))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0_28))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version102))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version1_0))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -379,29 +379,29 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
-			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0280))
+			testCase := core.NewTestCase().Add(envflags.DefaultSetEnvCommand(core.Version0_28))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version090))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_90))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(map[string]string{}), envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -416,39 +416,39 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.VersionLatest))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version_latest))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -459,212 +459,212 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.VersionLatest))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version_latest))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv latest - DeleteEnv v1.0.2", func() {
+		ginkgo.It("Run SetEnv latest - DeleteEnv v1.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.VersionLatest))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version_latest))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
 
-		ginkgo.It("Run SetEnv v1.0.2 - DeleteEnv v0.28.0", func() {
+		ginkgo.It("Run SetEnv v1.0 - DeleteEnv v0.28.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version102))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version1_0))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v1.0.2 - DeleteEnv v0.90.0", func() {
+		ginkgo.It("Run SetEnv v1.0 - DeleteEnv v0.90.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version102))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version1_0))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v1.0.2 - DeleteEnv latest", func() {
+		ginkgo.It("Run SetEnv v1.0 - DeleteEnv latest", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version102))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version1_0))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -676,39 +676,39 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version090))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_90))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -719,81 +719,81 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version090))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_90))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v0.90.0 - DeleteEnv v1.0.2", func() {
+		ginkgo.It("Run SetEnv v0.90.0 - DeleteEnv v1.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime Latest
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version090))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_90))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv latest Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -805,82 +805,82 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Add SetEnv Commands of Runtime v0.28.0
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0280))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_28))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Run SetEnv v0.28.0 - DeleteEnv v1.0.2", func() {
+		ginkgo.It("Run SetEnv v0.28.0 - DeleteEnv v1.0", func() {
 			// Build test case with commands
 
 			// Add SetEnv Commands of Runtime v0.28.0
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0280))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_28))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.28.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)
@@ -891,39 +891,39 @@ var _ = ginkgo.Describe("Cross-version Env Flags APIs compatibility tests", func
 			// Add SetEnv Commands of Runtime v0.28.0
 			testCase := core.NewTestCase()
 
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0280))
-			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_28))
+			testCase.Add(envflags.DefaultSetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithValue(envflags.CompatibilityTestsEnvVal), envflags.WithStrictValidationStrategy()))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithEnvs(multipleTestEnvs), envflags.WithStrictValidationStrategy()))
 
 			// Add DeleteEnv v0.90.0 Command
-			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
+			testCase.Add(envflags.DefaultDeleteEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne)))
 
 			// Add GetEnv latest, v0.90.0, v0.28.0 Commands
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithStrictValidationStrategy()))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithStrictValidationStrategy()))
 
-			testCase.Add(envflags.DefaultGetEnvCommand(core.VersionLatest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version102, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version090, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
-			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0280, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version_latest, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version1_0, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_90, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
+			testCase.Add(envflags.DefaultGetEnvCommand(core.Version0_28, envflags.WithKey(envflags.CompatibilityTestsEnvOne), envflags.WithError(common.ErrNotFound)))
 
 			// Add GetEnvConfigurations v0.25.4, v0.11.6 Commands
-			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0254, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0116, envflags.WithStrictValidationStrategy()))
+			testCase.Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_25, envflags.WithStrictValidationStrategy())).Add(envflags.DefaultGetEnvConfigurationsCommand(core.Version0_11, envflags.WithStrictValidationStrategy()))
 
 			// Run all the commands
 			executer.Execute(testCase)

@@ -196,9 +196,9 @@ More details about input parameters for above high level API:
 const (
   Version0110 RuntimeVersion = "v0.11.0"
   Version0250 RuntimeVersion = "v0.25.0"
-  Version0280 RuntimeVersion = "v0.28.0"
-  Version090 RuntimeVersion = "v0.90.0"
-  VersionLatest RuntimeVersion = "latest"
+  Version0_28 RuntimeVersion = "v0.28.0"
+  Version0_90 RuntimeVersion = "v0.90.0"
+  Version_latest RuntimeVersion = "latest"
 )
 
 type RuntimeVersion string
@@ -262,7 +262,7 @@ Example 1: For the Below NewSetContextCommand if the context arguments are passe
 // Input Parameters for Runtime SetContext API
    setContextInputOptions := SetContextInputOptions{
         RuntimeAPIVersion: &core.RuntimeAPIVersion{
-          RuntimeVersion: core.Version0280,
+          RuntimeVersion: core.Version0_28,
         },
        CtxOptions: CtxOptions{
            Name: "context-one",
@@ -296,7 +296,7 @@ It("SetContext v0.28.0 SetContext v0.28.0(Unsetting ClusterOpts.Endpoint) GetCon
    // Input Parameters for Runtime SetContext API V0.28.0
    setContextInputOptions := &framework.SetContextInputOptions{
       RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-         RuntimeVersion: framework.Version0280,
+         RuntimeVersion: framework.Version0_28,
       },
       ContextOpts: &framework.ContextOpts{
          Name:   "context-one",
@@ -311,7 +311,7 @@ It("SetContext v0.28.0 SetContext v0.28.0(Unsetting ClusterOpts.Endpoint) GetCon
    // Input Parameters for Runtime SetContext API V0.28.0 With ClusterOpts.Endpoint unset
    setContextInputOptionsWithEndpointUnset := &framework.SetContextInputOptions{
       RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-         RuntimeVersion: framework.Version0280,
+         RuntimeVersion: framework.Version0_28,
       },
       ContextOpts: &framework.ContextOpts{
          Name:   "context-one",
@@ -334,7 +334,7 @@ It("SetContext v0.28.0 SetContext v0.28.0(Unsetting ClusterOpts.Endpoint) GetCon
    // Input Parameters for Runtime GetContext API
    getContextInputOptions := &framework.GetContextInputOptions{
       RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-         RuntimeVersion: framework.Version0280,
+         RuntimeVersion: framework.Version0_28,
       },
       ContextName: "context-one",
    }
@@ -342,7 +342,7 @@ It("SetContext v0.28.0 SetContext v0.28.0(Unsetting ClusterOpts.Endpoint) GetCon
    // Output Parameters for Runtime GetContext API
    getContextOutputOptions := &framework.GetContextOutputOptions{
       RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-         RuntimeVersion: framework.Version0280,
+         RuntimeVersion: framework.Version0_28,
       },
       ContextOpts: &framework.ContextOpts{
          Name:   "context-one",
@@ -356,7 +356,7 @@ It("SetContext v0.28.0 SetContext v0.28.0(Unsetting ClusterOpts.Endpoint) GetCon
 
    getContextOutputOptionsWithEndpointNotExpected := &framework.GetContextOutputOptions{
       RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-         RuntimeVersion: framework.Version0280,
+         RuntimeVersion: framework.Version0_28,
       },
       ContextOpts: &framework.ContextOpts{
          Name:   "context-one",
@@ -449,7 +449,7 @@ It("Run Runtime V100 SetContext API and Runtime V0280 GetContext API", func() {
 // Input Parameters for Runtime SetContext API
 setContextInputOptions := &framework.SetContextInputOptions{
  RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-   RuntimeVersion: framework.VersionLatest,
+   RuntimeVersion: framework.Version_latest,
    },
    ContextOpts: &framework.ContextOpts{
     Name:   "context-one",
@@ -466,7 +466,7 @@ setContextInputOptions := &framework.SetContextInputOptions{
       // Input Parameters for Runtime GetContext API
       getContextInputOptions := &framework.GetContextInputOptions{
          RuntimeAPIVersion: &framework.RuntimeAPIVersion{
-            RuntimeVersion: framework.VersionLatest,
+            RuntimeVersion: framework.Version_latest,
          },
          ContextName: "context-one",
       }

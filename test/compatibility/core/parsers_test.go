@@ -32,7 +32,7 @@ func TestParseRuntimeAPIsFromFile(t *testing.T) {
 			[]API{
 				{
 					Name:    SetContextAPI,
-					Version: Version090,
+					Version: Version0_90,
 					Arguments: map[APIArgumentType]interface{}{
 						Context: `name: context-one
 target: kubernetes
@@ -65,7 +65,7 @@ globalOpts:
 			[]API{
 				{
 					Name:    SetContextAPI,
-					Version: VersionLatest,
+					Version: Version_latest,
 					Arguments: map[APIArgumentType]interface{}{
 						Context: `name: context-one
 target: kubernetes

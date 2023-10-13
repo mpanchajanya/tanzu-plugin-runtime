@@ -29,14 +29,14 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 	ginkgo.Context("using single context- Server", func() {
 
-		ginkgo.It("Set Context@latest - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@latest - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
 			testCase.Add(context.SetContextCommand())
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -48,8 +48,8 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 			testCase.Add(context.SetContextCommand())
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -61,8 +61,8 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 			testCase.Add(context.SetContextCommand())
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -74,19 +74,19 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 			testCase.Add(context.SetContextCommand())
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
 			executer.Execute(testCase)
 		})
 
-		ginkgo.It("Set Context@v1.0.2 - Set Server@latest", func() {
+		ginkgo.It("Set Context@v1.0 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version102)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version102)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version1_0)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetCurrentServerCommand())
@@ -95,40 +95,40 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v1.0.2 - Set Server@v0.90.0", func() {
+		ginkgo.It("Set Context@v1.0 - Set Server@v0.90.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version102)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version102)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version1_0)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v1.0.2 - Set Server@v0.25.4", func() {
+		ginkgo.It("Set Context@v1.0 - Set Server@v0.25.4", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version102)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version102)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version1_0)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v1.0.2 - Set Server@v0.28.0", func() {
+		ginkgo.It("Set Context@v1.0 - Set Server@v0.28.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version102)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version102)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version1_0)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -138,8 +138,8 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.90.0 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetCurrentServerCommand())
@@ -148,14 +148,14 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v0.90.0 - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@v0.90.0 - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -164,11 +164,11 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.90.0 - Set Server@v0.25.4", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -177,11 +177,11 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.90.0 - Set Server@v0.28.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -191,8 +191,8 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.28.0 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetCurrentServerCommand())
@@ -204,11 +204,11 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.28.0 - Set Server@v0.90.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -217,24 +217,24 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.28.0 - Set Server@v0.25.4", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v0.28.0 - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@v0.28.0 - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -244,8 +244,8 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.25.4 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetCurrentServerCommand())
@@ -257,24 +257,24 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.25.4 - Set Server@v0.90.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v0.25.4 - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@v0.25.4 - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -283,11 +283,11 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.25.4 - Set Server@v0.28.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyContextAndServer(testCase)
 
@@ -300,10 +300,10 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.90.0 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetServerCommand(server.WithServerName(common.CompatibilityTestTwo)))
@@ -314,18 +314,18 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v0.90.0 - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@v0.90.0 - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -334,15 +334,15 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.90.0 - Set Server@v0.25.4", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -351,15 +351,15 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.90.0 - Set Server@v0.28.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version090), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_90), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -391,10 +391,10 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -408,10 +408,10 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -425,10 +425,10 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 
 			testCase.Add(context.SetCurrentContextCommand())
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -438,10 +438,10 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.28.0 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetServerCommand(server.WithServerName(common.CompatibilityTestTwo)))
@@ -455,15 +455,15 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.28.0 - Set Server@v0.90.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -472,32 +472,32 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.28.0 - Set Server@v0.25.4", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0254), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_25), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v0.28.0 - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@v0.28.0 - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0280), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_28), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -507,10 +507,10 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.25.4 - Set Server@latest", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
 			testCase.Add(server.SetServerCommand())
 			testCase.Add(server.SetServerCommand(server.WithServerName(common.CompatibilityTestTwo)))
@@ -524,30 +524,30 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.25.4 - Set Server@v0.90.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version090), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_90), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
 			executer.Execute(testCase)
 		})
-		ginkgo.It("Set Context@v0.25.4 - Set Server@v1.0.2", func() {
+		ginkgo.It("Set Context@v0.25.4 - Set Server@v1.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254), context.WithContextName(common.CompatibilityTestTwo)))
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version102), server.WithServerName(common.CompatibilityTestTwo)))
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version1_0), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -556,15 +556,15 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 		ginkgo.It("Set Context@v0.25.4 - Set Server@v0.28.0", func() {
 			testCase := core.NewTestCase()
 
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254)))
-			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0254), context.WithContextName(common.CompatibilityTestTwo)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
+			testCase.Add(context.SetContextCommand(context.WithRuntimeVersion(core.Version0_25), context.WithContextName(common.CompatibilityTestTwo)))
 
-			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+			testCase.Add(context.SetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0280), server.WithServerName(common.CompatibilityTestTwo)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+			testCase.Add(server.SetServerCommand(server.WithRuntimeVersion(core.Version0_28), server.WithServerName(common.CompatibilityTestTwo)))
 
-			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
+			testCase.Add(server.SetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
 
 			addTestCasesToVerifyTwoContextsAndServers(testCase)
 
@@ -575,77 +575,77 @@ var _ = ginkgo.Describe("Combination Tests for Context - Server APIs", func() {
 })
 
 func addTestCasesToVerifyContextAndServer(testCase *core.TestCase) {
-	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.VersionLatest, legacyclientconfig.WithDefaultContextAndServer(core.VersionLatest)))
-	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version102, legacyclientconfig.WithDefaultContextAndServer(core.Version102)))
-	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version090, legacyclientconfig.WithDefaultContextAndServer(core.Version090)))
-	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0280, legacyclientconfig.WithDefaultContextAndServer(core.Version0280)))
-	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0254, legacyclientconfig.WithDefaultContextAndServer(core.Version0254)))
-	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0116, legacyclientconfig.WithDefaultContextAndServer(core.Version0116)))
+	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version_latest, legacyclientconfig.WithDefaultContextAndServer(core.Version_latest)))
+	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version1_0, legacyclientconfig.WithDefaultContextAndServer(core.Version1_0)))
+	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0_90, legacyclientconfig.WithDefaultContextAndServer(core.Version0_90)))
+	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0_28, legacyclientconfig.WithDefaultContextAndServer(core.Version0_28)))
+	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0_25, legacyclientconfig.WithDefaultContextAndServer(core.Version0_25)))
+	testCase.Add(legacyclientconfig.DefaultGetClientConfigCommand(core.Version0_11, legacyclientconfig.WithDefaultContextAndServer(core.Version0_11)))
 
 	testCase.Add(context.GetContextCommand())
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version102)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version090)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0254)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
 	testCase.Add(context.GetCurrentContextCommand())
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version102)))
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
 	testCase.Add(server.GetServerCommand())
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version102)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version090)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0116)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_11)))
 
 	testCase.Add(server.GetCurrentServerCommand())
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0116)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_11)))
 }
 
 func addTestCasesToVerifyTwoContextsAndServers(testCase *core.TestCase) {
 	testCase.Add(context.GetContextCommand())
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version102)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version090)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0254)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
 	testCase.Add(context.GetContextCommand(context.WithContextName(common.CompatibilityTestTwo)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version102), context.WithContextName(common.CompatibilityTestTwo)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version090), context.WithContextName(common.CompatibilityTestTwo)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0280), context.WithContextName(common.CompatibilityTestTwo)))
-	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0254), context.WithContextName(common.CompatibilityTestTwo)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version1_0), context.WithContextName(common.CompatibilityTestTwo)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_90), context.WithContextName(common.CompatibilityTestTwo)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_28), context.WithContextName(common.CompatibilityTestTwo)))
+	testCase.Add(context.GetContextCommand(context.WithRuntimeVersion(core.Version0_25), context.WithContextName(common.CompatibilityTestTwo)))
 
 	testCase.Add(context.GetCurrentContextCommand())
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version102)))
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version090)))
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0254)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(context.GetCurrentContextCommand(context.WithRuntimeVersion(core.Version0_25)))
 
 	testCase.Add(server.GetServerCommand())
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version102)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version090)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0254)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0116)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_11)))
 
 	testCase.Add(server.GetServerCommand(server.WithServerName(common.CompatibilityTestTwo)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version102), server.WithServerName(common.CompatibilityTestTwo)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version090), server.WithServerName(common.CompatibilityTestTwo)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0280), server.WithServerName(common.CompatibilityTestTwo)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0254), server.WithServerName(common.CompatibilityTestTwo)))
-	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0116), server.WithServerName(common.CompatibilityTestTwo)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version1_0), server.WithServerName(common.CompatibilityTestTwo)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_90), server.WithServerName(common.CompatibilityTestTwo)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_28), server.WithServerName(common.CompatibilityTestTwo)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_25), server.WithServerName(common.CompatibilityTestTwo)))
+	testCase.Add(server.GetServerCommand(server.WithRuntimeVersion(core.Version0_11), server.WithServerName(common.CompatibilityTestTwo)))
 
 	testCase.Add(server.GetCurrentServerCommand())
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version102)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version090)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0280)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0254)))
-	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0116)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version1_0)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_90)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_28)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_25)))
+	testCase.Add(server.GetCurrentServerCommand(server.WithRuntimeVersion(core.Version0_11)))
 }

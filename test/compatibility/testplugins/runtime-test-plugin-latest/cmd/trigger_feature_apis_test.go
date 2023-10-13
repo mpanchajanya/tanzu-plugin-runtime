@@ -29,7 +29,7 @@ func TestTriggerFeatureAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.SetFeatureAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Plugin: "test-plugin",
 						core.Key:    "compatibility-tests",
@@ -60,7 +60,7 @@ func TestTriggerFeatureAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.IsFeatureEnabledAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Plugin: "test-plugin",
 						core.Key:    "compatibility-tests",
@@ -90,7 +90,7 @@ func TestTriggerFeatureAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.SetFeatureAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Plugin: "test-plugin",
 						core.Key:    "compatibility-tests",
@@ -103,7 +103,7 @@ func TestTriggerFeatureAPIs(t *testing.T) {
 				},
 				{
 					Name:    core.DeleteFeatureAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Plugin: "test-plugin",
 						core.Key:    "compatibility-tests",

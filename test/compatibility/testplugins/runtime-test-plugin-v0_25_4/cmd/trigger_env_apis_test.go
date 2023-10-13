@@ -35,7 +35,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.StoreClientConfigAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ClientConfig: defaultEnv,
 					},
@@ -64,7 +64,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetEnvConfigurationsAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Output: &core.Output{
 						Result:  "success",
 						Content: `compatibility-tests: default-env-val`,

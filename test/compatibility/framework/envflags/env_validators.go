@@ -18,7 +18,7 @@ func (opts *SetEnvInputOptions) Validate() (bool, error) {
 	}
 
 	switch opts.RuntimeVersion {
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28:
 		if opts.Key == "" {
 			return false, fmt.Errorf("invalid 'key' for SetEnvInputOptions for the specified runtime version %v", opts.RuntimeVersion)
 		}
@@ -39,7 +39,7 @@ func (opts *GetEnvInputOptions) Validate() (bool, error) {
 	}
 
 	switch opts.RuntimeVersion {
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28:
 		if opts.Key == "" {
 			return false, fmt.Errorf("invalid 'key' for GetEnvInputOptions for the specified runtime version %v", opts.RuntimeVersion)
 		}
@@ -57,7 +57,7 @@ func (opts *GetEnvConfigurationsOutputOptions) Validate() (bool, error) {
 	}
 
 	switch opts.RuntimeVersion {
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280, core.Version0254, core.Version0116:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28, core.Version0_25, core.Version0_11:
 		if opts.Envs == nil {
 			return false, fmt.Errorf("invalid 'envs' for GetEnvConfigurationsOutputOptions for the specified runtime version %v", opts.RuntimeVersion)
 		}
@@ -74,7 +74,7 @@ func (opts *DeleteEnvInputOptions) Validate() (bool, error) {
 		return false, err
 	}
 	switch opts.RuntimeVersion {
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28:
 		if opts.Key == "" {
 			return false, fmt.Errorf("invalid 'key' for DeleteEnvInputOptions for the specified runtime version %v", opts.RuntimeVersion)
 		}

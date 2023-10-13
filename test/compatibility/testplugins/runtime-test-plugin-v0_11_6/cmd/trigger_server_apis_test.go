@@ -34,7 +34,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Server:     server,
 						core.SetCurrent: false,
@@ -64,7 +64,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Server:     server,
 						core.SetCurrent: false,
@@ -76,7 +76,7 @@ globalOpts:
 				},
 				{
 					Name:    core.GetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ServerName: "compatibility-test-one",
 					},
@@ -111,7 +111,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Server:     server,
 						core.SetCurrent: false,
@@ -123,7 +123,7 @@ globalOpts:
 				},
 				{
 					Name:    core.RemoveServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ServerName: "compatibility-test-one",
 					},
@@ -152,7 +152,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Server:     server,
 						core.SetCurrent: false,
@@ -164,7 +164,7 @@ globalOpts:
 				},
 				{
 					Name:    core.DeleteServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ServerName: "compatibility-test-one",
 					},
@@ -193,7 +193,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Server:     server,
 						core.SetCurrent: false,
@@ -205,7 +205,7 @@ globalOpts:
 				},
 				{
 					Name:    core.SetCurrentServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ServerName: "compatibility-test-one",
 					},
@@ -234,7 +234,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Server:     server,
 						core.SetCurrent: false,
@@ -246,7 +246,7 @@ globalOpts:
 				},
 				{
 					Name:    core.SetCurrentServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ServerName: "compatibility-test-one",
 					},
@@ -257,7 +257,7 @@ globalOpts:
 				},
 				{
 					Name:    core.GetCurrentServerAPI,
-					Version: core.Version0116,
+					Version: core.Version0_11,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Target: "kubernetes",
 					},

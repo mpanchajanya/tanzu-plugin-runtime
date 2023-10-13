@@ -51,7 +51,7 @@ type CfgClientConfigArgsOption func(*CfgClientConfigArgs)
 func WithCLIDiscoverySources(version core.RuntimeVersion, sources []types.PluginDiscoveryOpts) CfgClientConfigArgsOption {
 	return func(c *CfgClientConfigArgs) {
 		switch version {
-		case core.VersionLatest, core.Version102, core.Version090:
+		case core.Version_latest, core.Version1_0, core.Version0_90:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				CoreCliOptions: &types.CoreCliOptionsOpts{
 					DiscoverySources: sources,
@@ -74,7 +74,7 @@ func WithDefaultCLIDiscoverySource(version core.RuntimeVersion) CfgClientConfigA
 	defaultPluginDiscoverySource := clidiscoverysources.DefaultCLIDiscoverySourcePerVersion(version)
 	return func(c *CfgClientConfigArgs) {
 		switch version {
-		case core.VersionLatest, core.Version102, core.Version090:
+		case core.Version_latest, core.Version1_0, core.Version0_90:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				CoreCliOptions: &types.CoreCliOptionsOpts{
 					DiscoverySources: []types.PluginDiscoveryOpts{
@@ -100,7 +100,7 @@ func WithDefaultCLIDiscoverySource(version core.RuntimeVersion) CfgClientConfigA
 func WithDefaultServer(version core.RuntimeVersion) CfgClientConfigArgsOption {
 	return func(c *CfgClientConfigArgs) {
 		switch version {
-		case core.VersionLatest, core.Version090, core.Version0280:
+		case core.Version_latest, core.Version0_90, core.Version0_28:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				KnownServers: []*types.ServerOpts{
 					{
@@ -114,7 +114,7 @@ func WithDefaultServer(version core.RuntimeVersion) CfgClientConfigArgsOption {
 				CurrentServer: common.CompatibilityTestOne,
 			}
 
-		case core.Version0254:
+		case core.Version0_25:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				KnownServers: []*types.ServerOpts{
 					{
@@ -135,7 +135,7 @@ func WithDefaultServer(version core.RuntimeVersion) CfgClientConfigArgsOption {
 func WithDefaultContextAndServer(version core.RuntimeVersion) CfgClientConfigArgsOption {
 	return func(c *CfgClientConfigArgs) {
 		switch version {
-		case core.VersionLatest:
+		case core.Version_latest:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				KnownServers: []*types.ServerOpts{
 					{
@@ -162,7 +162,7 @@ func WithDefaultContextAndServer(version core.RuntimeVersion) CfgClientConfigArg
 					},
 				},
 			}
-		case core.Version090, core.Version0280:
+		case core.Version0_90, core.Version0_28:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				KnownServers: []*types.ServerOpts{
 					{
@@ -187,7 +187,7 @@ func WithDefaultContextAndServer(version core.RuntimeVersion) CfgClientConfigArg
 					},
 				},
 			}
-		case core.Version0254:
+		case core.Version0_25:
 			c.ClientConfigOpts = &types.ClientConfigOpts{
 				KnownServers: []*types.ServerOpts{
 					{

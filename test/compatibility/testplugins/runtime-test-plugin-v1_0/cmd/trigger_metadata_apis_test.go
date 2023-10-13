@@ -37,7 +37,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.SetConfigMetadataSettingAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key:   CompatibilityTestsMetadataSettingsKey,
 						core.Value: CompatibilityTestsMetadataSettingsValue,
@@ -63,7 +63,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.SetConfigMetadataPatchStrategyAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key:   CompatibilityTestsMetadataPatchStrategyKey,
 						core.Value: CompatibilityTestsMetadataPatchStrategyValue,
@@ -89,7 +89,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetMetadataAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 				},
 			},
 
@@ -116,7 +116,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetConfigMetadataAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 				},
 			},
 
@@ -141,7 +141,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetConfigMetadataPatchStrategyAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 				},
 			},
 
@@ -163,7 +163,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetConfigMetadataSettingsAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 				},
 			},
 
@@ -185,7 +185,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetConfigMetadataSettingAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: CompatibilityTestsMetadataSettingsKey,
 					},
@@ -210,7 +210,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.IsConfigMetadataSettingsEnabledAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: CompatibilityTestsMetadataSettingsKey,
 					},
@@ -235,7 +235,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.UseUnifiedConfigAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: CompatibilityTestsMetadataSettingsKey,
 					},
@@ -260,7 +260,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.DeleteConfigMetadataSettingAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: CompatibilityTestsMetadataSettingsKey,
 					},
@@ -285,7 +285,7 @@ func TestTriggerMetadataAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.UseUnifiedConfigAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: CompatibilityTestsMetadataSettingsKey,
 					},

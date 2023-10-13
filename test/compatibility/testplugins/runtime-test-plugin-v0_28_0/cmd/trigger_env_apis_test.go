@@ -29,7 +29,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.SetEnvAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key:   "compatibility-tests",
 						core.Value: "default-env-val",
@@ -59,7 +59,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetEnvAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: "compatibility-tests",
 					},
@@ -88,7 +88,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.GetEnvConfigurationsAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Output: &core.Output{
 						Result:  "success",
 						Content: `compatibility-tests: default-env-val`,
@@ -116,7 +116,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 			apis: []core.API{
 				{
 					Name:    core.SetEnvAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key:   "compatibility-tests",
 						core.Value: "default-env-val",
@@ -128,7 +128,7 @@ func TestTriggerEnvAPIs(t *testing.T) {
 				},
 				{
 					Name:    core.DeleteEnvAPI,
-					Version: core.VersionLatest,
+					Version: core.Version_latest,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Key: "compatibility-tests",
 					},

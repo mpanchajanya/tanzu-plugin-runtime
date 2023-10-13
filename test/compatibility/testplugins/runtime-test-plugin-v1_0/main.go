@@ -5,7 +5,7 @@
 package main
 
 import (
-	"github.com/vmware-tanzu/tanzu-plugin-runtime/test/compatibility/testplugins/runtime-test-plugin-v1_0_2/cmd"
+	"github.com/vmware-tanzu/tanzu-plugin-runtime/test/compatibility/testplugins/runtime-test-plugin-v1_0/cmd"
 )
 
 func main() {

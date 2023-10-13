@@ -23,7 +23,7 @@ func TestNewSetContextCommand(t *testing.T) {
 		{
 			&SetContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ContextOpts: &types.ContextOpts{
 					Name:   "compatibility-one",
@@ -37,7 +37,7 @@ func TestNewSetContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.SetContextAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"context": `name: compatibility-one
 target: kubernetes
@@ -58,7 +58,7 @@ globalOpts:
 		{
 			&SetContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ContextOpts: &types.ContextOpts{
 					Name:   "compatibility-one",
@@ -72,7 +72,7 @@ globalOpts:
 				APIs: []*core.API{
 					{
 						Name:    core.SetContextAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"context": `name: compatibility-one
 target: kubernetes
@@ -112,12 +112,12 @@ func TestNewGetContextCommand(t *testing.T) {
 		{
 			&GetContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ContextName: "compatibility-one",
 			}, &GetContextOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ContextOpts: &types.ContextOpts{
 					Name:   "compatibility-one",
@@ -131,7 +131,7 @@ func TestNewGetContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.GetContextAPIName,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"contextName": "compatibility-one",
 						},
@@ -151,12 +151,12 @@ globalOpts:
 		{
 			&GetContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ContextName: "compatibility-one",
 			}, &GetContextOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ContextOpts: &types.ContextOpts{
 					Name:   "compatibility-one",
@@ -170,7 +170,7 @@ globalOpts:
 				APIs: []*core.API{
 					{
 						Name:    core.GetContextAPIName,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"contextName": "compatibility-one",
 						},
@@ -209,7 +209,7 @@ func TestNewDeleteContextCommand(t *testing.T) {
 		{
 			&DeleteContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ContextName: "compatibility-one",
 			}, nil,
@@ -217,7 +217,7 @@ func TestNewDeleteContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.DeleteContextAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"contextName": "compatibility-one",
 						},
@@ -233,7 +233,7 @@ func TestNewDeleteContextCommand(t *testing.T) {
 		{
 			&DeleteContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ContextName: "compatibility-one",
 			}, nil,
@@ -241,7 +241,7 @@ func TestNewDeleteContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.DeleteContextAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"contextName": "compatibility-one",
 						},
@@ -276,7 +276,7 @@ func TestNewSetCurrentContextCommand(t *testing.T) {
 		{
 			&SetCurrentContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				ContextName: "compatibility-one",
 			}, nil,
@@ -284,7 +284,7 @@ func TestNewSetCurrentContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.SetCurrentContextAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"contextName": "compatibility-one",
 						},
@@ -300,7 +300,7 @@ func TestNewSetCurrentContextCommand(t *testing.T) {
 		{
 			&SetCurrentContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				ContextName: "compatibility-one",
 			}, nil,
@@ -308,7 +308,7 @@ func TestNewSetCurrentContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.SetCurrentContextAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							"contextName": "compatibility-one",
 						},
@@ -343,12 +343,12 @@ func TestNewGetCurrentContextCommand(t *testing.T) {
 		{
 			&GetCurrentContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				Target: types.TargetK8s,
 			}, &GetCurrentContextOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ContextOpts: &types.ContextOpts{
 					Name:   "compatibility-one",
@@ -362,7 +362,7 @@ func TestNewGetCurrentContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.GetCurrentContextAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.Target: types.TargetK8s,
 						},
@@ -382,12 +382,12 @@ globalOpts:
 		{
 			&GetCurrentContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				Target: types.TargetK8s,
 			}, &GetCurrentContextOutputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version0280,
+					RuntimeVersion: core.Version0_28,
 				},
 				ContextOpts: &types.ContextOpts{
 					Name:   "compatibility-one",
@@ -401,7 +401,7 @@ globalOpts:
 				APIs: []*core.API{
 					{
 						Name:    core.GetCurrentContextAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.Target: types.TargetK8s,
 						},
@@ -440,7 +440,7 @@ func TestNewRemoveCurrentContextCommand(t *testing.T) {
 		{
 			&RemoveCurrentContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.Version090,
+					RuntimeVersion: core.Version0_90,
 				},
 				Target: types.TargetK8s,
 			}, nil,
@@ -448,7 +448,7 @@ func TestNewRemoveCurrentContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.RemoveCurrentContextAPI,
-						Version: core.Version090,
+						Version: core.Version0_90,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.Target: types.TargetK8s,
 						},
@@ -464,7 +464,7 @@ func TestNewRemoveCurrentContextCommand(t *testing.T) {
 		{
 			&RemoveCurrentContextInputOptions{
 				RuntimeAPIVersion: &core.RuntimeAPIVersion{
-					RuntimeVersion: core.VersionLatest,
+					RuntimeVersion: core.Version_latest,
 				},
 				Target: types.TargetK8s,
 			}, nil,
@@ -472,7 +472,7 @@ func TestNewRemoveCurrentContextCommand(t *testing.T) {
 				APIs: []*core.API{
 					{
 						Name:    core.RemoveCurrentContextAPI,
-						Version: core.VersionLatest,
+						Version: core.Version_latest,
 						Arguments: map[core.APIArgumentType]interface{}{
 							core.Target: types.TargetK8s,
 						},

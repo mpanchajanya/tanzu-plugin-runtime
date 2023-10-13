@@ -37,7 +37,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Context:    ctx,
 						core.SetCurrent: false,
@@ -67,7 +67,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Context:    ctx,
 						core.SetCurrent: false,
@@ -79,7 +79,7 @@ globalOpts:
 				},
 				{
 					Name:    core.GetContextAPIName,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ContextName: "context-one",
 					},
@@ -114,7 +114,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Context:    ctx,
 						core.SetCurrent: false,
@@ -126,7 +126,7 @@ globalOpts:
 				},
 				{
 					Name:    core.RemoveContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ContextName: "context-one",
 					},
@@ -155,7 +155,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Context:    ctx,
 						core.SetCurrent: false,
@@ -167,7 +167,7 @@ globalOpts:
 				},
 				{
 					Name:    core.DeleteContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ContextName: "context-one",
 					},
@@ -196,7 +196,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Context:    ctx,
 						core.SetCurrent: false,
@@ -208,7 +208,7 @@ globalOpts:
 				},
 				{
 					Name:    core.SetCurrentContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ContextName: "context-one",
 					},
@@ -237,7 +237,7 @@ globalOpts:
 			apis: []core.API{
 				{
 					Name:    core.SetContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Context:    ctx,
 						core.SetCurrent: false,
@@ -249,7 +249,7 @@ globalOpts:
 				},
 				{
 					Name:    core.SetCurrentContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ContextName: "context-one",
 					},
@@ -260,7 +260,7 @@ globalOpts:
 				},
 				{
 					Name:    core.GetCurrentContextAPI,
-					Version: core.Version0254,
+					Version: core.Version0_25,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.ContextType: "k8s",
 					},

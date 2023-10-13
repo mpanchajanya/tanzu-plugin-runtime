@@ -17,11 +17,11 @@ func TestConstructTestPluginCmd(t *testing.T) {
 		err       string
 	}{
 		{
-			version: VersionLatest,
+			version: Version_latest,
 			apis: []*API{
 				{
 					Name:      SetContextAPI,
-					Version:   VersionLatest,
+					Version:   Version_latest,
 					Arguments: map[APIArgumentType]interface{}{},
 					Output:    nil,
 				},
@@ -30,24 +30,24 @@ func TestConstructTestPluginCmd(t *testing.T) {
 			err:       "",
 		},
 		{
-			version: Version102,
+			version: Version1_0,
 			apis: []*API{
 				{
 					Name:      SetContextAPI,
-					Version:   Version102,
+					Version:   Version1_0,
 					Arguments: map[APIArgumentType]interface{}{},
 					Output:    nil,
 				},
 			},
-			pluginCmd: pluginV102,
+			pluginCmd: pluginV10,
 			err:       "",
 		},
 		{
-			version: Version090,
+			version: Version0_90,
 			apis: []*API{
 				{
 					Name:      SetContextAPI,
-					Version:   Version090,
+					Version:   Version0_90,
 					Arguments: map[APIArgumentType]interface{}{},
 					Output:    nil,
 				},

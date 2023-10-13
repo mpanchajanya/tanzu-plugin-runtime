@@ -37,7 +37,7 @@ oci:
 			apis: []core.API{
 				{
 					Name:    core.SetCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.DiscoverySource: source,
 					},
@@ -48,7 +48,7 @@ oci:
 				},
 				{
 					Name:    core.SetCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.DiscoverySource: source,
 					},
@@ -83,7 +83,7 @@ oci:
 			apis: []core.API{
 				{
 					Name:    core.SetCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.DiscoverySource: source,
 					},
@@ -94,7 +94,7 @@ oci:
 				},
 				{
 					Name:    core.GetCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Name: sourceOne,
 					},
@@ -128,7 +128,7 @@ oci:
 			apis: []core.API{
 				{
 					Name:    core.SetCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.DiscoverySource: source,
 					},
@@ -139,7 +139,7 @@ oci:
 				},
 				{
 					Name:    core.DeleteCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Name: sourceOne,
 					},
@@ -168,7 +168,7 @@ oci:
 			apis: []core.API{
 				{
 					Name:    core.SetCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.DiscoverySource: source,
 					},
@@ -179,7 +179,7 @@ oci:
 				},
 				{
 					Name:    core.DeleteCLIDiscoverySourceAPI,
-					Version: core.Version090,
+					Version: core.Version0_90,
 					Arguments: map[core.APIArgumentType]interface{}{
 						core.Name: sourceOne,
 					},

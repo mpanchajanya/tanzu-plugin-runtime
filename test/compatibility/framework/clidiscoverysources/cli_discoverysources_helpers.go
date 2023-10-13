@@ -124,16 +124,16 @@ func DefaultCLIDiscoverySourcePerVersion(version core.RuntimeVersion) *CfgCLIDis
 	}
 
 	switch version {
-	case core.Version0116:
+	case core.Version0_11:
 		return NewCfgCLIDiscoverySourcesArgs(
 			WithOCIDiscoveryOpts(oci),
 		)
-	case core.Version0254:
+	case core.Version0_25:
 		return NewCfgCLIDiscoverySourcesArgs(
 			WithOCIDiscoveryOpts(oci),
 			WithContextType(types.CtxTypeTMC),
 		)
-	case core.VersionLatest, core.Version102, core.Version090, core.Version0280:
+	case core.Version_latest, core.Version1_0, core.Version0_90, core.Version0_28:
 		return NewCfgCLIDiscoverySourcesArgs(
 			WithOCIDiscoveryOpts(oci),
 		)
